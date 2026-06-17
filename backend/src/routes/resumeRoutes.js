@@ -7,6 +7,8 @@ const upload = require("../middleware/uploadMiddleware");
 const {
   createResume,
   getResumes,
+  updateResume,
+  deleteResume,
 } = require("../controllers/resumeController");
 
 // Upload Resume
@@ -19,5 +21,11 @@ router.post(
 
 // Get User Resumes
 router.get("/", protect, getResumes);
+
+// Update Resume
+router.put("/:id", protect, updateResume);
+
+// Delete Resume
+router.delete("/:id", protect, deleteResume);
 
 module.exports = router;
