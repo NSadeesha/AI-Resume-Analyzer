@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./src/config/db");
 const userRoutes = require("./src/routes/userRoutes");
+const resumeRoutes = require("./src/routes/resumeRoutes");
 
 // Connect Database
 connectDB();
@@ -16,6 +17,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/users", userRoutes);
+app.use("/api/resumes", resumeRoutes);
 
 app.get("/", (req, res) => {
   res.json({
